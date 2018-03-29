@@ -1,6 +1,9 @@
 # angularjs-dynamic-controllers
 Dynamically load controllers in AngularJS
 
+### Demo
+https://codepen.io/richardmauritz/project/editor/ZwapEa
+
 ### Installation
 Include the script in the head of your tag
 
