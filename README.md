@@ -16,3 +16,18 @@ angular.module('app', [])
 ```
 
 Make this module the root module of your application.
+
+### How to use?
+
+Put all your controllers inside the following folder:
+
+```
+src/application/controllers/
+```
+
+The name of the controller given in the `ng-controller="THIS NAME"` will be also the name it will look for inside the controllers folder.
+
+```
+ng-controller="bonjour" => src/application/controllers/bonjour.controller.js
+ng-controller="hello" => src/application/controllers/hello.controller.js
+```
