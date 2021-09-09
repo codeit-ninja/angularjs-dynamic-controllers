@@ -17,12 +17,13 @@ window.addEventListener('DOMContentLoaded', function () {
         console.warn("This will also most likely fix the 'Uncaught Error: [$injector:modulerr]' error.");
     }
 
-    const promises = ngControllers.map(controller => new Promise(resolve => 
-        document.head.appendChild(
-            document.createElement('script')
-                .setAttribute('src', 'src/application/controllers/' + controller.getAttribute('ng-controller') + '.controller.js')
-                .addEventListener('load', resolve.bind(null, script))))
-    )
+    const promises = [...ngControllers].map(controller => new Promise(resolve => {
+			const script = document.createElement('script');
+				  script.setAttribute('src', 'src/application/controllers/' + controller.getAttribute('ng-controller') + '.controller.js');
+				  script.addEventListener('load', resolve.bind(null, script));
+			document.head.appendChild(script);
+		})
+	)
 
     // Resolve all promises then bootstrap the app
     // Without the use of promises, the bootstrap will start before all scripts are included
